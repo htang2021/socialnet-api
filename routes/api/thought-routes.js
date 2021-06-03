@@ -6,7 +6,7 @@ const {
     addReaction,
     removeThought,
     removeReaction
-} = require('../../controllers/comment-controller');
+} = require('../../controllers/thought-controller');
 
 router
     // api/thoughts
@@ -24,8 +24,14 @@ router
 router
     // /api/thoughts/<userId>/<thoughtId>
   .route('/:userId/:thoughtId')
-  .put(addReaction)
+//   .put(addReaction)
   .delete(removeThought);
+
+// Set up POST reaction at /api/thoughts/<thoughtId>/reactions
+router
+    // /api/thoughts/<thoughtId>/reactions
+    .route('/:thoughtId/reactions')
+    .post(addReaction)
 
 router
     .route('/:userId/:thoughtId/:reactionId')
