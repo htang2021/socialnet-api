@@ -13,7 +13,7 @@ const UserSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            
+            match: [/.+@.+\..+/]
         },
         thoughts: [
             {
@@ -31,9 +31,24 @@ const UserSchema = new Schema(
     {
         toJSON: {
             virtuals: true,
-        }
+            getters: true
+        },
+        id: false
 
-}
+    }
+);
 
+// get total count of friends on retrieval
+// UserSchema.virtual('friendCount').get(function() {
+//     return this.users.reduce((total, user) => total + user.friends.length + 1, 0);
+//   });
 
-})
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
+  });
+
+// create the User model using the UserSchema
+const User = model('User', UserSchema);
+
+// export the User model
+module.exports = User;
