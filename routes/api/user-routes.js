@@ -22,9 +22,14 @@ router
   .put(updateUser)
   .delete(deleteUser);
 
+// Route to add a friend to the userID (Id)
+router
+  .route('/:id/friends')
+  .post(addFriend);
+
+// Route to delete a friend from the UserID (Id)
 router
   .route('/:id/friends/:friendId')
-  .post(addFriend)
   .delete(deleteFriend);
 
 module.exports = router;
