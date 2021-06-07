@@ -3,6 +3,7 @@ const {
     getAllThought,
     getThoughtById,
     addThought,
+    updateThought,
     addReaction,
     removeThought,
     removeReaction
@@ -15,17 +16,17 @@ router
 
 // Set up GET one, PUT, and DELETE at /api/thoughts/:userId
 router
-    // /api/thoughts/<userId>
-  .route('/:userId')
+    // /api/thoughts/<thoughtId>
+  .route('/:thoughtId')
   .get(getThoughtById)
-  .post(addThought);
-
-// Set up GET all and POST at /api/users
-router
-    // /api/thoughts/<userId>/<thoughtId>
-  .route('/:userId/:thoughtId')
-//   .put(addReaction)
+  .put(updateThought)
   .delete(removeThought);
+
+//Set up POST at /api/thoughts/userId
+router
+  // api/thoughts/<userId>/
+  .route('/:userId')
+  .post(addThought);
 
 // Set up POST reaction at /api/thoughts/<thoughtId>/reactions
 router
