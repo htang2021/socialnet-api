@@ -38,9 +38,9 @@ All files and changes made are located on github at the following location:
 https://github.com/htang2021/socialnet-api  
 
 ## Walk-Thru Video
-Link to the walkthrough video that demonstrates the functionality of the social media API's:
+Link to the walkthrough video that demonstrates the functionality of the social media API's:  
 
-
+https://drive.google.com/file/d/1vrK-0UPPp3OyBHSNaztai7MBaMc97znj/view
 
 
 End of README.md - updated by Hung Tang on 6/6/21
