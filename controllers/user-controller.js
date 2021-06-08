@@ -91,13 +91,16 @@ const userController = {
 
     // Delete a friend by friend's ID
     deleteFriend({ params }, res) {
-        // console.log(params);
+        console.log(params);
         User.findOneAndUpdate(
             { _id: params.id },
-            { $pull: { friends: { friendId: params.friendId } } },
-            { new: true })
+            { $pull: { friends: params.friendId  } },
+            { new: false })
             .then(dbUserData => {
-                console.log(friends);
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'No friend found with this ID!'});
+                    return;
+                }
                 res.json(dbUserData);
             })
             .catch(err => res.status(400).json(err));

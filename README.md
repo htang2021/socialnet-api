@@ -43,4 +43,4 @@ Link to the walkthrough video that demonstrates the functionality of the social 
 
 
 
-End of README.md - updated by Hung Tang on 3/13/21
+End of README.md - updated by Hung Tang on 6/6/21
